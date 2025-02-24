@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'admin_loginUI.dart'; // Import the AdminLoginScreen UI
-import 'admin_dashboard.dart';
+//import 'screens/admin_loginUI.dart'; // Import the AdminLoginScreen UI
+import 'screens/admin_dashboard.dart';
 
 
 void main() {
