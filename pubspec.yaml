@@ -57,11 +57,12 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 assets:
-  - assets/admin_avatar.png
+  - /lib/assets/admin_avatar.png
 fonts:
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

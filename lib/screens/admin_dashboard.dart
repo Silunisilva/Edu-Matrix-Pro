@@ -21,7 +21,8 @@ class AdminDashboard extends StatelessWidget {
               children: const [
                 DashboardCard(title: "Inquiries", subtitle: "Pending : 13"),
                 DashboardCard(title: "Teacher Applications", subtitle: "Pending : 04"),
-                // ... Other cards
+                DashboardCard(title: "Student Management", subtitle:"543 students"),
+                DashboardCard(title: "Teacher Management", subtitle: "Pending : 13")
               ],
             ),
           ),
