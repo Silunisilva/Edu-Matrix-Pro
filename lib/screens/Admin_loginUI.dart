@@ -1,9 +1,33 @@
 import 'package:flutter/material.dart';
 import '../widgets/gradient_scaffold.dart';
 import '../widgets/gradient_button.dart';
+import '../services/auth_services.dart'; // Import the auth service
+import '../screens/admin_dashboard.dart'; // Import the AdminDashboard
 
-class AdminLoginScreen extends StatelessWidget {
+class AdminLoginScreen extends StatefulWidget {
   const AdminLoginScreen({super.key});
+
+  @override
+  _AdminLoginScreenState createState() => _AdminLoginScreenState();
+}
+
+class _AdminLoginScreenState extends State<AdminLoginScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final AuthService _authService = AuthService(); // Initialize the auth service
+
+  void _login() {
+    if (_authService.validateUser(_usernameController.text, _passwordController.text)) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => AdminDashboard()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Invalid credentials')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +38,7 @@ class AdminLoginScreen extends StatelessWidget {
           const CircleAvatar(
             radius: 50,
             backgroundColor: Colors.white,
-            backgroundImage: AssetImage('assets/admin_avatar.png'),
+            backgroundImage: AssetImage('../assets/admin_avatar.png'),
           ),
           const SizedBox(height: 20),
           const Text(
@@ -38,11 +62,19 @@ class AdminLoginScreen extends StatelessWidget {
             ),
             child: Column(
               children: [
-                // TextFields remain same
+                TextField(
+                  controller: _usernameController,
+                  decoration: InputDecoration(labelText: 'Username'),
+                ),
+                TextField(
+                  controller: _passwordController,
+                  decoration: InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                ),
                 const SizedBox(height: 20),
                 GradientButton(
                   text: "Login",
-                  onPressed: () {},
+                  onPressed: _login,
                 ),
               ],
             ),

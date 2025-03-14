@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/gradient_scaffold.dart';
 import '../widgets/dashboard_card.dart';
-import '../constants/app_gradients.dart';
+import '../widgets/avatar_widget.dart'; // Import the AvatarWidget
+import '../screens/student_inquiries_screen.dart'; // Import the Inquiries Screen
 
 class AdminDashboard extends StatelessWidget {
   const AdminDashboard({super.key});
@@ -12,41 +13,33 @@ class AdminDashboard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 40),
-          const _TopAvatar(),
-          
+          const SizedBox(height: 20),
+          const AvatarWidget(), // Use the AvatarWidget
+          const SizedBox(height: 20),
           Expanded(
             child: ListView(
-              padding: const EdgeInsets.all(16),
-              children: const [
-                DashboardCard(title: "Inquiries", subtitle: "Pending : 13"),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              children: [
+                DashboardCard(
+                  title: "Inquiries",
+                  subtitle: "Pending : 13",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => StudentInquiriesScreen()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 16),
                 DashboardCard(title: "Teacher Applications", subtitle: "Pending : 04"),
-                DashboardCard(title: "Student Management", subtitle:"543 students"),
-                DashboardCard(title: "Teacher Management", subtitle: "Pending : 13")
+                const SizedBox(height: 16),
+                DashboardCard(title: "Student Management", subtitle: "543 students"),
+                const SizedBox(height: 16),
+                DashboardCard(title: "Teacher Management", subtitle: "Pending : 13"),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-// Separate avatar widget for reusability
-class _TopAvatar extends StatelessWidget {
-  const _TopAvatar();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 16),
-      child: Align(
-        alignment: Alignment.topRight,
-        child: CircleAvatar(
-          radius: 25,
-          backgroundColor: Colors.white,
-          backgroundImage: AssetImage('assets/admin_avatar.png'),
-        ),
       ),
     );
   }

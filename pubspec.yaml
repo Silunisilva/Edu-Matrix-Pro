@@ -57,7 +57,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 assets:
-  - /lib/assets/admin_avatar.png
+  - assets/admin_avatar.png
 fonts:
     - family: Roboto
       fonts:
