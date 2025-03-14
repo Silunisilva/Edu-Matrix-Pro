@@ -24,6 +24,7 @@ import 'screens/admin_dashboard.dart';
 import 'screens/teacher_applications_list_screen.dart';
 import 'screens/teacher_management_screen.dart';
 import 'screens/student_inquiries_screen.dart';
+import 'screens/student_management_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         '/teacher_applications_list': (context) => TeacherApplicationsListScreen(),
         '/teacher_management': (context) => TeacherManagementScreen(),
         '/student_inquiries': (context) => StudentInquiriesScreen(),
+        '/student_management': (context) => StudentManagementScreen(),
       },
     );
   }
