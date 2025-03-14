@@ -1,10 +1,11 @@
+import 'package:edu_matrix_pro/screens/student_management_screen.dart';
 import 'package:flutter/material.dart';
 import '../widgets/gradient_scaffold.dart';
 import '../widgets/dashboard_card.dart';
 import '../widgets/avatar_widget.dart'; // Import the AvatarWidget
 import '../screens/student_inquiries_screen.dart'; // Import the Inquiries Screen
 import '../screens/teacher_applications_list_screen.dart'; // Import the Teacher Applications List Screen
-import '../screens/student_management_screen.dart'; // Import the Student Management Screen
+import '../screens/teacher_management_screen.dart'; // Import the Teacher Management Screen
 
 class AdminDashboard extends StatelessWidget {
   const AdminDashboard({super.key});
@@ -55,7 +56,16 @@ class AdminDashboard extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 16),
-                DashboardCard(title: "Teacher Management", subtitle: "Pending : 13"),
+                DashboardCard(
+                  title: "Teacher Management",
+                  subtitle: "Pending : 13",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TeacherManagementScreen()),
+                    );
+                  },
+                ),
               ],
             ),
           ),
