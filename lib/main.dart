@@ -21,7 +21,7 @@
 import 'package:flutter/material.dart';
 import 'screens/admin_loginUI.dart';
 import 'screens/admin_dashboard.dart';
-//import 'screens/teacher_registration_screen.dart';
+import 'screens/teacher_applications_list_screen.dart';
 import 'screens/teacher_management_screen.dart';
 import 'screens/student_inquiries_screen.dart';
 
@@ -39,11 +39,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/student_inquiries',
+      initialRoute: '/',
       routes: {
         '/': (context) => const AdminLoginScreen(),
         '/dashboard': (context) => const AdminDashboard(),
-        //'/teacher_registration': (context) => TeacherRegistrationScreen(),
+        '/teacher_applications_list': (context) => TeacherApplicationsListScreen(),
         '/teacher_management': (context) => TeacherManagementScreen(),
         '/student_inquiries': (context) => StudentInquiriesScreen(),
       },
